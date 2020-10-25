@@ -13,6 +13,11 @@ class TopicAddPage extends Component
     public $index;
     public $tempPairs;
 
+    protected $rules = [
+        'tempPairs' => 'required|min:4',
+        'tempPairs.*.*' => 'required|string',
+    ];
+
     public function mount(){
         $this -> name = null;
         $this -> tempPairs = collect();
@@ -29,6 +34,9 @@ class TopicAddPage extends Component
     }
 
     public function submit(){
+
+        $this -> validate();
+
         $topic = new Topic();
         $topic -> name = $this -> name;
         // TODO : If user is logged in, set the actual user id
