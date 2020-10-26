@@ -21,12 +21,23 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get("/dashboard", \App\Http\Livewire\Dashboard::class);
+
+Auth::routes();
 
 
-Route::get("/topic/add", \App\Http\Livewire\TopicAddPage::class);
+Route::middleware(['auth'])->group(function () {
+    //
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get("/topic/edit/{id}", \App\Http\Livewire\TopicEditPage::class);
+    Route::get("/dashboard", \App\Http\Livewire\Dashboard::class);
 
 
-Route::get("/quiz/{topicId}", \App\Http\Livewire\QuizPage::class);
+    Route::get("/topic/add", \App\Http\Livewire\TopicAddPage::class);
+
+    Route::get("/topic/edit/{id}", \App\Http\Livewire\TopicEditPage::class);
+
+
+    Route::get("/quiz/{topicId}", \App\Http\Livewire\QuizPage::class);
+
+
+});
