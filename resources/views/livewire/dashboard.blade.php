@@ -6,36 +6,27 @@
                     <div class="d-flex justify-content-between">
                         <div>
                             <img class="mb-2" src="placeholder/icons/folder-o.svg" alt="" height="30" width="30">
-                            <h5>Topics</h5>
+                            <h5># of Topic</h5>
                         </div>
-                        <span class="text-primary display-4 d-flex align-items-center ml-auto">2</span>
+                        <span class="text-primary display-4 d-flex align-items-center ml-auto">{{ sizeof($topics) }}</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
                     <div class="d-flex justify-content-between">
                         <div>
                             <img class="mb-2" src="placeholder/icons/users.svg" alt="" height="30" width="30">
-                            <h5>Quizzes</h5>
+                            <h5># of Quiz</h5>
                         </div>
-                        <span class="text-danger display-4 d-flex align-items-center ml-auto">117</span>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <img class="mb-2" src="placeholder/icons/file-text-o.svg" alt="" height="30" width="30">
-                            <h5>Completed</h5>
-                        </div>
-                        <span class="text-info display-4 d-flex align-items-center ml-auto">248</span>
+                        <span class="text-danger display-4 d-flex align-items-center ml-auto">{{ $quizzesNum }}</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
                     <div class="d-flex justify-content-between">
                         <div>
                             <img class="mb-2" src="placeholder/icons/calendar-o.svg" alt="" height="30" width="30">
-                            <h5>Scores</h5>
+                            <h5>Average Score</h5>
                         </div>
-                        <span class="text-success display-4 d-flex align-items-center ml-auto">14</span>
+                        <span class="text-success display-4 d-flex align-items-center ml-auto">{{ $averageScore }}%</span>
                     </div>
                 </div>
             </div>
@@ -60,7 +51,7 @@
                     @endphp
                     @foreach($topics as $topic)
                         <tr>
-                            <td>{{ $index }}</td>
+                            <td>{{ $index + 1 }}</td>
                             <td>{{ $topic -> name }}</td>
                             <td>{{ $topic -> created_at }}</td>
                             <td><a class="btn btn-primary" href="{{ url("/quiz/".$topic -> id) }}">Start Quiz</a></td>

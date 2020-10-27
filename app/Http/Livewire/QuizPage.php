@@ -6,8 +6,10 @@ use App\Models\Choice;
 use App\Models\Pair;
 use App\Models\Question;
 use App\Models\Quiz;
+use App\Models\Score;
 use App\Models\Term;
 use App\Models\Topic;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
@@ -179,6 +181,14 @@ class QuizPage extends Component
                     $question -> is_correct
                 ]);
             }
+            // Store the score
+            Score::create([
+                'user_id' => Auth::user() -> id,
+                'quiz_id' => $this -> quizId,
+                'questions_total' => $this -> totalQuestions,
+                'score_total' => $this -> scores,
+            ]);
+
         }
     }
 
