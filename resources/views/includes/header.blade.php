@@ -1,13 +1,13 @@
 
 
 <head>
-    <title>Page title</title>
+    <title>Quizzz</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" href="{{ asset('/favicon.ico') }}">
 
     @livewireStyles
 

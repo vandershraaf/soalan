@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Topic;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Dashboard extends Component
@@ -10,8 +11,7 @@ class Dashboard extends Component
     public $topics;
 
     public function mount(){
-        // for now, just get all topics in dashboard
-        $this -> topics = Topic::all();
+        $this -> topics = Topic::where('user_id', Auth::user() -> id) -> get();
     }
 
     public function render()
