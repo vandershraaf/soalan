@@ -18,6 +18,7 @@ class QuizPage extends Component
 
 
     public $currentQuestionIndex;
+    public $topicName;
 
     public $term1s;
     public $term2s;
@@ -113,6 +114,7 @@ class QuizPage extends Component
         if (!isset($topic)){
             return redirect() -> to("/dashboard");
         }
+        $this -> topicName = $topic -> name;
         $pairs = Pair::where('topic_id', $topic -> id) -> get();
 
         // TODO : Minimum number of pairs in topic is 4. Need to enforce during topic creation

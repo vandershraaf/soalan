@@ -86,7 +86,7 @@ class TopicEditPage extends Component
                 'term_2_id' => $term2 -> id
             ]);
         }
-        return redirect() -> to('/topic/edit/'.$this -> topicId);
+        return redirect() -> to('/dashboard');
     }
 
 

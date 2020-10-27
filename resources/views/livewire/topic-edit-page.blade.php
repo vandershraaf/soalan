@@ -1,33 +1,58 @@
-
 <div>
 
-    <p><span>Topic name : </span><input type="text" wire:model.defer="name"></p>
+    <div>
+        <div class="mx-auto" style="width: 300px;">
+            <h1 class="text-center">Edit Topic : {{ $name }}</h1>
+        </div>
 
+        <div class="container form-group">
+            <label for="">Topic name</label>
+            <input class="form-control" wire:model.defer="name" type="text" name="field-name" placeholder="Enter topic name">
+        </div>
+    </div>
 
-    <table border="0">
-        @foreach($pairs as $key => $arr)
-            <tr wire:key="pairs-{{ $key }}">
-                <td><input type="text" wire:model.defer="pairs.{{ $key }}.0"></td>
-                <td><input type="text" wire:model.defer="pairs.{{ $key }}.1"></td>
-            </tr>
-            <td><button wire:click="removePair({{ $key }})">Delete</button></td>
-        @endforeach
-    </table>
+    @foreach($pairs as $key => $arr)
+        <div class="container">
+            <div class="row" wire:key="{{ $key }}">
+                <div class="col-12 col-lg-6"><div class="form-group">
+                        <label class="text-left" for=""></label>
+                        <textarea class="form-control" name="field-name" rows="3" placeholder="Term 1" wire:model.defer="pairs.{{ $key }}.0"></textarea>
+                    </div></div>
+                <div class="col-12 col-lg-6"><div class="form-group">
+                        <label for=""></label>
+                        <textarea class="form-control" name="field-name" rows="3" placeholder="Term 2" wire:model.defer="pairs.{{ $key }}.1"></textarea>
+                    </div></div>
+            </div>
+        </div>
+        <div class="container mx-auto" style="width: 200px;">
+            <a class="btn btn-lg btn-danger" wire:click="removePair({{ $key }})">Delete Pair</a>
+        </div>
+    @endforeach
 
     <hr>
 
-    <button wire:click="add">Add pair</button>
+    @foreach($tempPairs as $key => $arr)
+        <div class="container">
+            <div class="row" wire:key="{{ $key }}">
+                <div class="col-12 col-lg-6"><div class="form-group">
+                        <label class="text-left" for=""></label>
+                        <textarea class="form-control" name="field-name" rows="3" placeholder="New term 1" wire:model.defer="tempPairs.{{ $key }}.0"></textarea>
+                    </div></div>
+                <div class="col-12 col-lg-6"><div class="form-group">
+                        <label for=""></label>
+                        <textarea class="form-control" name="field-name" rows="3" placeholder="New term 2" wire:model.defer="tempPairs.{{ $key }}.1"></textarea>
+                    </div></div>
+            </div>
+        </div>
+        <div class="container mx-auto" style="width: 200px;">
+            <a class="btn btn-lg btn-danger" wire:click="removeTemp({{ $key }})">Delete Pair</a>
+        </div>
+    @endforeach
 
-    <table border="0">
-        @foreach($tempPairs as $key => $arr)
-            <tr wire:key="{{ $key }}">
-                <td><input type="text" wire:model.defer="tempPairs.{{ $key }}.0"></td>
-                <td><input type="text" wire:model.defer="tempPairs.{{ $key }}.1"></td>
-            </tr>
-            <td><button wire:click="removeTemp({{ $key }})">Delete</button></td>
-        @endforeach
-    </table>
 
-    <button wire:click="submit()">Submit Changes</button>
+    <div class="mx-auto mt-3" style="width: 300px;">
+        <a class="btn btn-lg btn-primary" wire:click="add">Add Pair</a>
+        <a class="btn btn-lg btn-success" wire:click="submit()">Submit Changes</a>
+    </div>
 
 </div>
