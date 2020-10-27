@@ -43,9 +43,16 @@
                         <textarea class="form-control" name="field-name" rows="3" placeholder="New term 2" wire:model.defer="tempPairs.{{ $key }}.1"></textarea>
                     </div></div>
             </div>
-        </div>
-        <div class="container mx-auto" style="width: 200px;">
-            <a class="btn btn-lg btn-danger" wire:click="removeTemp({{ $key }})">Delete Pair</a>
+            <div class="row">
+                <div class="col-12 col-lg-5">
+                </div>
+                <div class="col-12 col-lg-2">
+                    <a class="btn btn-lg btn-primary" wire:click="add">+</a>
+                    <a class="btn btn-lg btn-danger" wire:click="remove({{ $key }})">-</a>
+                </div>
+                <div class="col-12 col-lg-5">
+                </div>
+            </div>
         </div>
     @endforeach
 

@@ -26,7 +26,7 @@
                             <img class="mb-2" src="placeholder/icons/calendar-o.svg" alt="" height="30" width="30">
                             <h5>Average Score</h5>
                         </div>
-                        <span class="text-success display-4 d-flex align-items-center ml-auto">{{ $averageScore }}%</span>
+                        <span class="text-success display-4 d-flex align-items-center ml-auto">{{ number_format($averageScore,2) }}%</span>
                     </div>
                 </div>
             </div>

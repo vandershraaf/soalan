@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Term;
 use App\Models\Topic;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class TopicAddPage extends Component
@@ -39,8 +40,7 @@ class TopicAddPage extends Component
 
         $topic = new Topic();
         $topic -> name = $this -> name;
-        // TODO : If user is logged in, set the actual user id
-        $topic -> user_id = 0;
+        $topic -> user_id = Auth::user() -> id;
         // TODO : How to determine visibility?
         $topic -> is_public = true;
         $topic -> save();

@@ -14,7 +14,7 @@
                     @endguest
                 </ul></div>
             <div class="col-4 navbar-nav text-center pr-0 d-none d-lg-block">
-                <a class="navbar-brand mr-0" href="{{ url('/') }}">
+                <a class="navbar-brand mr-0" href="{{  \Illuminate\Support\Facades\Auth::check() ? url('/dashboard') : url('/') }}">
                     <img src="{{ asset('/favicon.ico') }}">
                     Quizzz
                 </a></div>
