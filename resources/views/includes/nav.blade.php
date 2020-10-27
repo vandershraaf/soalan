@@ -4,8 +4,14 @@
     <div class="collapse navbar-collapse justify-content-md-center" id="navigations-02">
         <div class="row w-100">
             <div class="col-4 pl-lg-0">
-                <ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-
+                <ul class="navbar-nav">
+                    @guest()
+                        <li class="nav-item"><a class="nav-link active" href="{{ url('/login') }}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{{ url('/register') }}">Sign Up</a></li>
+                    @else
+                        <li class="nav-item"><a class="nav-link active" href="{{ url('/dashboard') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{{ url('/logout_now') }}">Logout</a></li>
+                    @endguest
                 </ul></div>
             <div class="col-4 navbar-nav text-center pr-0 d-none d-lg-block"><a class="navbar-brand mr-0" href="#">Quizzz</a></div>
             <div class="col-4 pr-lg-0">

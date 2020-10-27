@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});
-
 
 Auth::routes();
 
@@ -39,5 +35,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get("/quiz/{topicId}", \App\Http\Livewire\QuizPage::class);
 
+    Route::get("/logout_now", function (){
+        \Illuminate\Support\Facades\Auth::logout();
+        return redirect() -> to('/');
+    });
 
 });
