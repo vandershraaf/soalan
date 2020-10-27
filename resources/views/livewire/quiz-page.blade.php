@@ -53,16 +53,43 @@
 
         </div>
 
-        <ul style="text-decoration: none">
-            @foreach($questionsAnswers as $questionId => $arr)
-                <p>------</p>
-                <p>Question : {{ $arr[0] }}</p>
-                <p>Selected : {{ $arr[1] }}</p>
-                <p>Answer : {{ $arr[2] }}</p>
-                <p>Correct : {{ $arr[3] == true? 'yes' : 'no' }}</p>
-                <p>------</p>
-            @endforeach
-        <ul>
+        <div class="container mt-3">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Selected Answer</th>
+                    <th scope="col">Actual Answer</th>
+                    <th scope="col">Correct?</th>
+                </tr>
+                </thead>
+                <tbody>
+                @php
+                    $index = 0;
+                @endphp
+                @foreach($questionsAnswers as $questionId => $arr)
+                    <tr>
+                        <th scope="row">{{ $index + 1 }}</th>
+                        <td>{{ $arr[0] }}</td>
+                        <td>{{ $arr[1] }}</td>
+                        <td>{{ $arr[2] }}</td>
+                        <td>
+                            @if($arr[3] == true)
+                                <i class="far fa-check-circle bg-primary"></i>
+                            @else
+                                <i class="far fa-times-circle bg-danger"></i>
+                            @endif
+                        </td>
+                    </tr>
+                    @php
+                        $index++;
+                    @endphp
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+
 
     @endif
 

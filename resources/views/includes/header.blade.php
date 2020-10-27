@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="icon" href="{{ asset('/favicon.ico') }}">
 
     @livewireStyles
