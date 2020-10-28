@@ -19,7 +19,11 @@ class Dashboard extends Component
         $this -> quizzesNum = Score::where('user_id', Auth::user() -> id) -> count();
         $totalScores = Score::where('user_id', Auth::user() -> id) -> sum('score_total');
         $totalQuestions = Score::where('user_id', Auth::user() -> id) -> sum('questions_total');
-        $this -> averageScore = (($totalScores * 1.0) / ($totalQuestions * 1.0)) * 100.0;
+        if ($totalQuestions > 0){
+            $this -> averageScore = (($totalScores * 1.0) / ($totalQuestions * 1.0)) * 100.0;
+        } else {
+            $this -> averageScore = 0.0;
+        }
     }
 
     public function render()
