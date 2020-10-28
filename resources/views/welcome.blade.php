@@ -8,7 +8,10 @@
                 <div class="col-md-6 my-auto">
                     <h1 class="display-4">Quiz made easier</h1>
                     <p class="lead text-muted mb-4">You finished reading for your exam but still not sure if you have memorized everything? This tool can help you!</p>
-                    <a class="btn btn-primary" href="#">Sign up</a><a class="btn btn-link" href="#">Login</a>
+                    @guest
+                        <a class="btn btn-primary" href="{{ url('/register') }}">Sign up</a>
+                        <a class="btn btn-link" href="href="{{ url('/login') }}">Login</a>
+                    @endguest
                 </div>
                 <div class="col-md-6"><img class="img-fluid mt-4 mt-md-0" src="images/photo-1516979187457-637abb4f9353.jpg" alt=""></div>
             </div>
@@ -54,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center"><a class="btn btn-primary" href="#">Register now!</a></div>
+            <div class="text-center"><a class="btn btn-primary" href="{{ url('/register') }}">Sign up now!</a></div>
         </div>
     </section>
 
