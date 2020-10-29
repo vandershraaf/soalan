@@ -11,7 +11,13 @@
     <meta property="og:type"               content="website" />
     <meta property="og:title"              content="Quizzz" />
     <meta property="og:description"        content="Quiz made easier" />
-    <meta property="og:image"              content="{{ asset('/favicon.ico') }}" />
+    <meta property="og:image"              content="{{ asset('images/android-chrome-192x192.png') }}" />
+
+    <meta property="twitter:card"          content="summary" />
+    <meta property="twitter:creator"       content="vandershraaf" />
+    <meta property="twitter:image"         content="{{ asset('images/android-chrome-192x192.png') }}" />
+
+
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
